@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HelloMessage from './my_modules/HelloMessage';
-import {Timer, Clock} from './my_modules/Timer';
+import Timer from './my_modules/Timer';
 import MarkdownEditor from './my_modules/MarkdownEditor';
 import TodoApp from './todo_modules/TodoApp';
 import logo from './logo.svg';
@@ -17,10 +17,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <HelloMessage name="Tran Van Tam Em"/>
-        <Clock/>
+        <HelloMessage/>
         <Timer/>
-        
         <TodoApp />
         <MarkdownEditor />
       </div>
