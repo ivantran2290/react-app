@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import HelloMessage from './my_modules/HelloMessage';
-import Timer from './my_modules/Timer';
-import MarkdownEditor from './my_modules/MarkdownEditor';
-import TodoApp from './todo_modules/TodoApp';
-import logo from './logo.svg';
-import './App.css';
+import HelloMessage from './components/HelloMessage';
+import Timer from './components/Timer';
+import MarkdownEditor from './components/MarkdownEditor';
+import TodoApp from './containers/TodoApp';
+import MathApp from './containers/MathApp';
+import logo from './resources/svg/logo.svg';
+import './styles/App.css';
 
 class App extends Component {
   render() {
@@ -12,15 +13,18 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Javascript Math</h2>
         </div>        
-        <p className="App-intro">
+        {/*<p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <HelloMessage/>
-        <Timer/>
+        </p>*/}
+        <div className="App-content">
+          <MathApp/>
+        </div> 
+        
+        {/*<Timer/>
         <TodoApp />
-        <MarkdownEditor />
+        <MarkdownEditor />*/}
       </div>
     );
   }
