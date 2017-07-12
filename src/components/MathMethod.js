@@ -1,14 +1,88 @@
 import React, { Component } from 'react';
+import ReactTooltip from 'react-tooltip'
 
 class MathMethod extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {value: 0};
+    this.state = {value: 0, describ: this.getTooltip()};
   }
 
   handleChange(e) {
-    this.setState({value: e.target.value});
+    this.setState({value: e.target.value});    
+  }
+
+  getTooltip() {
+    switch(this.props.methodName){
+      case "abs":
+        return "The absolute value of the given number.";
+      case "acos":
+        return "The arccosine (in radians) of the given number if it's between -1 and 1; otherwise, NaN.";
+      case "acosh":
+        return "";
+      case "asin":
+        return "";
+      case "asinh":
+        return "";
+      case "atan":
+        return "";
+      case "atan2":
+        return "";
+      case "cbrt":
+        return "";
+      case "ceil":
+        return "";
+      case "clz32":
+        return "";
+      case "cos":
+        return "";
+      case "cosh":
+        return "";
+      case "exp":
+        return "";
+      case "expm1":
+        return "";
+      case "floor":
+        return "";
+      case "fround":
+        return "";
+      case "hypot":
+        return "";
+      case "imul":
+        return "";
+      case "log":
+        return "";
+      case "log10":
+        return "";
+      case "log1p":
+        return "";
+      case "log2":
+        return "";
+      case "min":
+        return "";
+      case "pow":
+        return "";
+      case "random":
+        return "";
+      case "round":
+        return "";
+      case "sign":
+        return "";
+      case "sin":
+        return "";
+      case "sinh":
+        return "";
+      case "sqrt":
+        return "";
+      case "tan":
+        return "";
+      case "tanh":
+        return "";
+      case "trunc":
+        return "";
+      default:
+        return "Unknown";
+    }
   }
 
   mathResult(){
@@ -96,7 +170,10 @@ class MathMethod extends Component {
     return (
       <div>
         <div className="App-column App-column-20">{this.mathName()}
-          <a className="App-float-left">Info</a>
+          <a className="App-float-left" data-tip data-for='sadFace'>Info</a>
+          <ReactTooltip id='sadFace' type='success' effect='solid'>
+            <span>{this.state.describ}</span>
+          </ReactTooltip>
         </div>
         <div className="App-column App-column-20">
           <input onChange={this.handleChange} defaultValue={this.state.value} />
