@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import D3App from './containers/d3';
 import logo from './resources/svg/logo.svg';
 import './styles/App.css';
+import './styles/font-awesome/css/font-awesome.css';
 
 class App extends Component {
   render() {
