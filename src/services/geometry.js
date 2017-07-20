@@ -5,7 +5,8 @@ var GeometryServices = {
   FunctionType: {
     DRAW_POINT: 0,
     DRAW_LINE: 1,
-    MOVE: 2
+    MOVE: 2,
+    ERASER: 3
   },
   drag: d3.drag()
   .on("drag", function(d){
@@ -22,25 +23,24 @@ var GeometryServices = {
   getCircleList: function() {
     return [];
   },
-  drawPoint: function(svg, coordinates){
-    svg.append("circle")
+  drawPoint: function(g, coordinates){
+    g.append("circle")
       .attr("transform", "translate(" + coordinates.x + "," + coordinates.y + ")")
       .attr("r", 5)
-      .attr("fill", CommonUtils.randomColor())
-      .call(this.drag);    
+      .attr("fill", CommonUtils.randomColor());
+      // .call(this.drag);    
   }, 
-  drawLine: function(svg, coordinate1, coordinate2){
-    svg.select('line').remove();
-    this.drawPoint(svg, coordinate1);    
-    svg.append("line")
+  drawLine: function(g, coordinate1, coordinate2){
+    this.drawPoint(g, coordinate1);    
+    g.append("line")
       .attr("x1", coordinate1.x)
       .attr("y1", coordinate1.y)
       .attr("x2", coordinate2.x)
       .attr("y2", coordinate2.y)
       .attr("stroke-width", 2)
-      .attr("stroke", CommonUtils.randomColor())
+      .attr("stroke", "#006064")
       .call(this.drag);
-    this.drawPoint(svg, coordinate1);    
+    this.drawPoint(g, coordinate2);    
   }
 };
 

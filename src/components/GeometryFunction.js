@@ -11,13 +11,13 @@ class GeometryFunction extends React.Component {
   handleClick(e) {   
     e.preventDefault();    
     this.props.changeFunction(this.props.functionType);
-    //this.render.style("border", "1px solid");
-    //this.style("border", "1px solid");
   }
 
   render() {
     return (
-      <i onClick={this.handleClick} className={"fa fa-3x " + this.props.className} style={this.props.style} aria-hidden="true"></i>      
+      <div className="function">
+          <i onClick={this.handleClick} className={"fa fa-3x " + this.props.className} style={this.props.style} aria-hidden="true"></i>      
+      </div>
     );
   }
 }
