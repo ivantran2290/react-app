@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import MarkdownEditor from './components/MarkdownEditor';
 // import TodoApp from './containers/TodoApp';
 // import MathApp from './containers/MathApp';
-import D3App from './containers/d3';
+import D3App from './containers/D3App';
 import logo from './resources/svg/logo.svg';
 import './styles/App.css';
 import './styles/font-awesome/css/font-awesome.css';

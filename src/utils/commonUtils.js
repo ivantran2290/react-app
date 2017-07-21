@@ -1,6 +1,6 @@
 var CommonUtils = {
   randomColor: function(){
-    var golden_ratio_conjugate = 0.618033988749895;
+    //var golden_ratio_conjugate = 0.618033988749895;
     var h = Math.random();
 
     var hslToRgb = function (h, s, l){
@@ -28,11 +28,10 @@ var CommonUtils = {
         return '#'+Math.round(r * 255).toString(16)+Math.round(g * 255).toString(16)+Math.round(b * 255).toString(16);
     };
     
-    return function(){
-      h += golden_ratio_conjugate;
-      h %= 1;
-      return hslToRgb(h, 0.5, 0.60);
-    };
+    return hslToRgb(h, 0.5, 0.60);
+  },
+  calDistance2Point: function(startP, endP){
+    return Math.sqrt(Math.pow((endP.x - startP.x),2) + Math.pow((endP.y - startP.y),2))
   }
 };
 

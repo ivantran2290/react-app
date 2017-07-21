@@ -5,7 +5,7 @@ class GeometryFunction extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);   
-    this.state = {functionType: GeometryServices.FunctionType.DRAW_POINT};
+    this.state = {functionType: GeometryServices.FunctionType.POINT};
   }
 
   handleClick(e) {   
