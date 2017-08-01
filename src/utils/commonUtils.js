@@ -32,6 +32,9 @@ var CommonUtils = {
   },
   calDistance2Point: function(startP, endP){
     return Math.sqrt(Math.pow((endP.x - startP.x),2) + Math.pow((endP.y - startP.y),2))
+  },
+  convertPIToDegrees: function(angle){
+      return (angle > 0 ? angle : (2*Math.PI + angle)) * 360 / (2*Math.PI)
   }
 };
 

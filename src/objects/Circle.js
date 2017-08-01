@@ -5,6 +5,7 @@ class Circle {
     this.center = center;
     this.radius = radius;
     this.color = color;
+    this.endP = null;    
   }
 
   draw(){
@@ -18,6 +19,13 @@ class Circle {
       .attr("fill", "none")
       .attr("stroke-width", 2)
       .attr("stroke", this.color);
+
+    //Draw end point
+    this.endP.draw();
+  }
+
+  remove(){
+    this.svg.selectAll("*").remove();
   }
 }
 export default Circle;

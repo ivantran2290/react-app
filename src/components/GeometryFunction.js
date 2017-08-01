@@ -16,7 +16,7 @@ class GeometryFunction extends React.Component {
   render() {
     return (
       <div className="function">
-          <i onClick={this.handleClick} className={"fa fa-3x " + this.props.className} style={this.props.style} aria-hidden="true"></i>      
+          <a onClick={this.handleClick} className={"fa fa-3x " + this.props.className} style={this.props.style} aria-hidden="true">{this.props.text}</a>      
       </div>
     );
   }

@@ -10,7 +10,7 @@ class Point {
     this.svg.append("circle")
       .attr("transform", "translate(" + this.x + "," + this.y + ")")
       .attr("r", 5)
-      .attr("fill", this.color);
+      .attr("fill", this.color)
       //.call(this.drag);    
   }
 }

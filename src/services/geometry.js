@@ -2,10 +2,13 @@ import * as d3 from "d3";
 
 var GeometryServices = {
   FunctionType: {
-    POINT: 0,
-    LINE: 1,
-    CIRCLE: 2,
-    ERASER: 3
+    POINT: 11,
+    SEGMENT: 12,
+    CIRCLE: 13,
+    ELLIPSE: 14,
+    ERASER_OBJECT: 90,
+    ERASER_ALL: 91,
+    MOVE: 92
   },
   drag: d3.drag()
   .on("drag", function(d){

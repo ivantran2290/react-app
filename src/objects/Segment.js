@@ -24,5 +24,9 @@ class Segment {
     //Draw end line
     this.endP.draw();    
   }
+
+  remove(){
+    this.svg.selectAll("*").remove();
+  }
 }
 export default Segment;
