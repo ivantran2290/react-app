@@ -50,21 +50,49 @@ class LearningApp extends React.Component {
     return kq;  
   }
 
+  cacNgayLeVietNam(nam){
+    //Khai bao bien ngay kq
+    let kq = [];
+    //Tết Dương Lịch
+    kq.push(CommonUtils.jpDateFormat(nam, 0, 1));
+    //Ngày Giải phóng miền Nam, Thống nhất đất nước
+    kq.push(CommonUtils.jpDateFormat(nam, 3, 30));
+    //Ngày Quốc tế Lao động
+    kq.push(CommonUtils.jpDateFormat(nam, 4, 1));
+    //Ngày Quốc khánh    
+    kq.push(CommonUtils.jpDateFormat(nam, 8, 2));
+    
+    return kq;  
+  }
+
+  showList(inList){
+    var outList = [];
+    for (var i = 0; i < inList.length; i++) {
+      outList.push(<div>{inList[i]}</div>);
+    }
+    return outList;
+  }
+
   handleChange(e) {
     this.setState({text: e.target.value});    
   }
 
   render() {
     var kq = this.timThu6Ngay13TrongNam(this.state.text);
-    var list = [];
-    for (var i = 0; i < kq.length; i++) {
-      list.push(<div>{kq[i]}</div>);
-    }
+    var thu6Ngay13List = this.showList(kq);
+    kq = this.cacNgayLeVietNam(this.state.text);
+    var cacNgayLeList = this.showList(kq);
     return (
       <div>
-        <h3>Nhập vào một năm, tìm tất cả các ngày thứ 6 ngày 13 trong năm đó:</h3>
+        <h3>Nhập vào một năm:</h3>
         <input onChange={this.handleChange} value={this.state.text} />
-        <div>{list}</div>
+        <br/>
+        <br/>
+        <div>Các ngày thứ 6 ngày 13 trong năm: {this.state.text}</div>
+        <div>{thu6Ngay13List}</div>
+        <br/>
+        <div>Các ngày lễ Việt Nam trong năm: {this.state.text}</div>
+        <div>{cacNgayLeList}</div>
       </div>
     );
   }
