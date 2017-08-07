@@ -1,5 +1,5 @@
 var CommonUtils = {
-  randomColor: function(){
+    randomColor: function(){
     //var golden_ratio_conjugate = 0.618033988749895;
     var h = Math.random();
 
@@ -27,15 +27,34 @@ var CommonUtils = {
 
         return '#'+Math.round(r * 255).toString(16)+Math.round(g * 255).toString(16)+Math.round(b * 255).toString(16);
     };
-    
+
     return hslToRgb(h, 0.5, 0.60);
-  },
-  calDistance2Point: function(startP, endP){
+    },
+    calDistance2Point: function(startP, endP){
     return Math.sqrt(Math.pow((endP.x - startP.x),2) + Math.pow((endP.y - startP.y),2))
-  },
-  convertPIToDegrees: function(angle){
-      return (angle > 0 ? angle : (2*Math.PI + angle)) * 360 / (2*Math.PI)
-  }
+    },
+    convertPIToDegrees: function(angle){
+        return (angle > 0 ? angle : (2*Math.PI + angle)) * 360 / (2*Math.PI)
+    },
+    giaiPhuongTrinhBacHai: function(a, b, c){
+    let nghiem = [];
+
+    let delta = Math.pow(b, 2) - 4 * a * c;
+    if (delta > 0)
+    {
+        nghiem[0] = (-b - Math.sqrt(delta)) / 2 * a;
+        nghiem[1] = (-b + Math.sqrt(delta)) / 2 * a;
+    }
+    else if (delta == 0)
+    {
+        nghiem[0] = -b / 2 * a;
+    }
+    else if (delta < 0)
+    {
+        nghiem = [];
+    }    
+    return nghiem;    
+    }
 };
 
 export default CommonUtils;

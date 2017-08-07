@@ -159,11 +159,7 @@ class MathMethod extends Component {
   }
 
   mathName(){
-    switch(this.props.methodName){
-      
-      default:
-        return "Math." + this.props.methodName + "(x)";
-    }
+    return "Math." + this.props.methodName + "(x)";
   }
   
   render() {
