@@ -108,11 +108,12 @@ class D3App extends React.Component {
       this.circle.center = this.getCurrentPonit(this.circle.svg, this.circle.color);
     }
     else{
-      this.circle.endP = this.getCurrentPonit(this.circle.svg, this.circle.color);
-      this.circle.radius = CommonUtils.calDistance2Point(this.circle.center, this.circle.endP);
-      this.circle.draw();
+      //this.circle.endP = this.getCurrentPonit(this.circle.svg, this.circle.color);
+      //this.circle.radius = CommonUtils.calDistance2Point(this.circle.center, this.circle.endP);
+      //this.circle.draw();
       this.bindEraserObjEvent(this.circle.svg);
       this.circle.startedDraw = false;
+      this.circle = new Circle();
     }
   }
 
@@ -177,10 +178,10 @@ class D3App extends React.Component {
   bindEraserObjEvent($object){
     let self = this;
     $object.on("mousedown", function() {
-      if(self.state.functionType === GeometryServices.FunctionType.ERASER_OBJECT) this.remove();
-      if(self.state.functionType === GeometryServices.FunctionType.MOVE){
-        d3.select(this).raise().classed("active", true);
-      }
+      // if(self.state.functionType === GeometryServices.FunctionType.ERASER_OBJECT) this.remove();
+      // if(self.state.functionType === GeometryServices.FunctionType.MOVE){
+      //   d3.select(this).raise().classed("active", true);
+      // }
     });
     $object.on("mouseup", function() {
       //TODO
