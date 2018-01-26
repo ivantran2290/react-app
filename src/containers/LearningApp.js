@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import CommonUtils from '../utils/commonUtils';
+import JSCoding from '../utils/JSCoding';
 
 class LearningApp extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {text: new Date().getFullYear()};
+    this.state = {text: new Date().getFullYear()};      
+  }
+
+  jsCoding(){
+    var test = new JSCoding();
+    test.apply();
   }
 
   getAllIntergerInArray(mangSoNguyen){
@@ -68,7 +74,7 @@ class LearningApp extends React.Component {
   showList(inList){
     var outList = [];
     for (var i = 0; i < inList.length; i++) {
-      outList.push(<div>{inList[i]}</div>);
+      outList.push(<div key={i}>{inList[i]}</div>);
     }
     return outList;
   }
@@ -78,13 +84,14 @@ class LearningApp extends React.Component {
   }
 
   render() {
+    this.jsCoding();
     var kq = this.timThu6Ngay13TrongNam(this.state.text);
     var thu6Ngay13List = this.showList(kq);
     kq = this.cacNgayLeVietNam(this.state.text);
     var cacNgayLeList = this.showList(kq);
     return (
       <div>
-        <h3>Nhập vào một năm:</h3>
+        {/* <h3>Nhập vào một năm:</h3>
         <input onChange={this.handleChange} value={this.state.text} />
         <br/>
         <br/>
@@ -92,7 +99,7 @@ class LearningApp extends React.Component {
         <div>{thu6Ngay13List}</div>
         <br/>
         <div>Các ngày lễ Việt Nam trong năm: {this.state.text}</div>
-        <div>{cacNgayLeList}</div>
+        <div>{cacNgayLeList}</div> */}
       </div>
     );
   }
