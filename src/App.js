@@ -21,10 +21,13 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>*/}
         <div className="App-content">
+        
         <LearningApp />
         </div>         
-        {/*<Timer/>
+        {/*
         <TodoApp />
+        <Timer/>
+        <LearningApp />
         <D3App></D3App>
         <MarkdownEditor />*/}
       </div>

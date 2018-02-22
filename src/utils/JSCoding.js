@@ -11,6 +11,7 @@ class JSCoding {
         console.log("\n----- Test Regular Expression -------");
         this.jsRegularExpr();
     }
+
     searchBound() {
         var str = 'ff\left({3}\right)-\frac{1}{2}+\sqrt{2}+diff\left({2}\right)+ff\left({3}\right)';
         console.log("input: " + str); 
@@ -23,7 +24,7 @@ class JSCoding {
         console.log("\nreplace key: " + replaceKey); 
 
         var newstr = str.replace(re, replaceKey);
-        console.log("\noutput: " + newstr); 
+        console.log("\noutput: " + newstr);         
     }
 
     jsRegularExpr(){

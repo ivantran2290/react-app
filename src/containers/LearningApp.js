@@ -84,14 +84,14 @@ class LearningApp extends React.Component {
   }
 
   render() {
-    this.jsCoding();
+    //this.jsCoding();
     var kq = this.timThu6Ngay13TrongNam(this.state.text);
     var thu6Ngay13List = this.showList(kq);
     kq = this.cacNgayLeVietNam(this.state.text);
     var cacNgayLeList = this.showList(kq);
     return (
       <div>
-        {/* <h3>Nhập vào một năm:</h3>
+        <h3>Nhập vào một năm:</h3>
         <input onChange={this.handleChange} value={this.state.text} />
         <br/>
         <br/>
@@ -99,10 +99,62 @@ class LearningApp extends React.Component {
         <div>{thu6Ngay13List}</div>
         <br/>
         <div>Các ngày lễ Việt Nam trong năm: {this.state.text}</div>
-        <div>{cacNgayLeList}</div> */}
+        <div>{cacNgayLeList}</div>
+        
+      <MyComponent></MyComponent>
       </div>
     );
   }
 }
 
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+  render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    }else if (items.length > 99) {
+      return <div>Dữ liệu quá lớn</div>;
+    } else {
+      return (
+          <div>{JSON.stringify(items) }</div>
+      );
+    }
+  }
+}
+
 export default LearningApp;
+
