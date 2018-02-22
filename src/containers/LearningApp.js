@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import CommonUtils from '../utils/commonUtils';
+import JSCoding from '../utils/JSCoding';
 
 class LearningApp extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {text: new Date().getFullYear()};
+    this.state = {text: new Date().getFullYear()};      
+  }
+
+  jsCoding(){
+    var test = new JSCoding();
+    test.apply();
   }
 
   getAllIntergerInArray(mangSoNguyen){
@@ -68,7 +74,7 @@ class LearningApp extends React.Component {
   showList(inList){
     var outList = [];
     for (var i = 0; i < inList.length; i++) {
-      outList.push(<div>{inList[i]}</div>);
+      outList.push(<div key={i}>{inList[i]}</div>);
     }
     return outList;
   }
@@ -78,6 +84,7 @@ class LearningApp extends React.Component {
   }
 
   render() {
+    //this.jsCoding();
     var kq = this.timThu6Ngay13TrongNam(this.state.text);
     var thu6Ngay13List = this.showList(kq);
     kq = this.cacNgayLeVietNam(this.state.text);
@@ -93,9 +100,61 @@ class LearningApp extends React.Component {
         <br/>
         <div>Các ngày lễ Việt Nam trong năm: {this.state.text}</div>
         <div>{cacNgayLeList}</div>
+        
+      <MyComponent></MyComponent>
       </div>
     );
   }
 }
 
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+  render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    }else if (items.length > 99) {
+      return <div>Dữ liệu quá lớn</div>;
+    } else {
+      return (
+          <div>{JSON.stringify(items) }</div>
+      );
+    }
+  }
+}
+
 export default LearningApp;
+

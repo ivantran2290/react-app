@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import HelloMessage from './components/HelloMessage';
-// import Timer from './components/Timer';
-// import MarkdownEditor from './components/MarkdownEditor';
-// import TodoApp from './containers/TodoApp';
-// import MathApp from './containers/MathApp';
-// import D3App from './containers/D3App';
+import HelloMessage from './components/HelloMessage';
+import Timer from './components/Timer';
+import MarkdownEditor from './components/MarkdownEditor';
+import TodoApp from './containers/TodoApp';
+import MathApp from './containers/MathApp';
+import D3App from './containers/D3App';
 import LearningApp from './containers/LearningApp';
 import logo from './resources/svg/logo.svg';
 import './styles/App.css';
@@ -21,10 +21,13 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>*/}
         <div className="App-content">
-          <LearningApp />
+        
+        <LearningApp />
         </div>         
-        {/*<Timer/>
+        {/*
         <TodoApp />
+        <Timer/>
+        <LearningApp />
         <D3App></D3App>
         <MarkdownEditor />*/}
       </div>
